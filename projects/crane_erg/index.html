@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crane–Robot Cooperative Control | Explicit Reference Governor</title>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    nav {
+      background: #004080;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background: #0059b3;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .equations {
+      background: #f7f9fc;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    img, iframe, video {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      color: #777;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Crane–Robot Cooperative Control Framework</h1>
+    <p>Constrained Control with Explicit Reference Governor (ERG)</p>
+  </header>
+
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../publications.html">Publications</a>
+    <a href="mailto:zemerart.asani@vub.be">Contact</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Abstract</h2>
+      <p>
+        This project presents a constrained control framework for cooperative manipulation of heavy payloads
+        using a heterogeneous dual-robot system composed of a 7-DoF <strong>Franka Emika Panda</strong>
+        manipulator and a 2-DoF <strong>overhead crane</strong>. The proposed approach integrates the
+        <em>Explicit Reference Governor (ERG)</em> with a pre-stabilized control scheme to ensure
+        constraint satisfaction without online optimization.
+      </p>
+      <p>
+        A trajectory-based ERG formulation, combining a <em>Dynamic Safety Margin (DSM)</em> and a
+        <em>Navigation Field (NF)</em>, dynamically adjusts the reference trajectory to guarantee safe
+        and coordinated motion between the two robots. Experimental results confirm that the proposed
+        scheme enables the manipulator to handle payloads several times heavier than its nominal capacity
+        while maintaining safe, constraint-compliant cooperation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Video Demonstration</h2>
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/0yQzZyuYphE"
+        title="Cooperative Crane–Robot ERG Demonstration"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section>
+      <h2>System Overview</h2>
+      <img src="../../assets/images/crane_system.png" alt="Crane–Robot Cooperative System">
+      <p style="text-align:center;">
+        <em>Figure:</em> The 7-DoF Franka Emika Panda manipulator and 2-DoF overhead crane cooperate to
+        transport and place a heavy block.
+      </p>
+    </section>
+
+    <section>
+      <h2>Mathematical Model</h2>
+      <p>
+        The coupled dynamics of the crane–robot system are modeled as a closed-chain mechanical system using
+        the Euler–Lagrange formalism. The resulting equations of motion are:
+      </p>
+
+      <div class="equations">
+        <p><strong>Equation (14):</strong></p>
+        <p>
+          \[
+          M(q)\ddot{q} + C(q, \dot{q})\dot{q} + g(q) = S u + A^T(q)\lambda
+          \]
+        </p>
+        <p>
+          where \(M(q)\) is the inertia matrix, \(C(q,\dot{q})\) the Coriolis–centrifugal term,
+          \(g(q)\) the gravity vector, \(S\) the actuator selection matrix, and \(A(q)^T\lambda\)
+          represents the constraint reaction forces.
+        </p>
+      </div>
+
+      <div class="equations">
+        <p><strong>Equation (15):</strong></p>
+        <p>
+          \[
+          A(q)\dot{q} = 0
+          \]
+        </p>
+        <p>
+          enforcing the closed-chain kinematic constraints that couple the crane and manipulator motions.
+        </p>
+      </div>
+
+      <p>
+        These equations form the foundation of the control design and are used within the ERG framework
+        to ensure that all joint, torque, and motion constraints are satisfied during cooperative manipulation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Downloads</h2>
+      <ul>
+        <li><a href="../../assets/papers/asani2025_crane.pdf" target="_blank">📄 Full Paper (PDF)</a></li>
+        <li><a href="https://github.com/zemerart/crane-erg-control" target="_blank">💻 GitHub Repository</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Zemerart Asani — Université Libre de Bruxelles & Vrije Universiteit Brussel
+  </footer>
+
+</body>
+</html>
 
