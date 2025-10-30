@@ -2,62 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Crane Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cooperative Crane–Robot System | Explicit Reference Governor</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 2rem auto;
-      max-width: 800px;
+      max-width: 900px;
       line-height: 1.6;
-      color: #333;
+      color: #222;
+      background-color: #fafafa;
     }
-    h1, h2 {
+    h1, h2, h3 {
       text-align: center;
+      color: #003366;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     img, iframe, video {
       display: block;
       margin: 1rem auto;
       max-width: 100%;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .abstract {
-      background: #f5f5f5;
-      padding: 1rem;
+    .abstract, .section {
+      background: #ffffff;
+      padding: 1.2rem;
       border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <h1>My Crane Project</h1>
+  <h1>Cooperative Crane–Robot System</h1>
+  <h3>Constrained Control Using the Explicit Reference Governor (ERG)</h3>
 
-  <h2>Abstract</h2>
   <div class="abstract">
+    <h2>Abstract</h2>
     <p>
-      This project demonstrates a crane system interacting with a mobile robot.
-      It combines modeling, simulation, and control. Below you’ll find a video demonstration
-      and a schematic image of the setup.
+      This project presents a constrained control framework for cooperative manipulation of heavy payloads using a
+      heterogeneous dual-robot system composed of a 7-DoF <strong>Franka Emika Panda</strong> manipulator and a 2-DoF
+      <strong>overhead crane</strong>. The proposed approach integrates the
+      <em>Explicit Reference Governor (ERG)</em> with a pre-stabilized control scheme to ensure constraint satisfaction
+      without online optimization. A trajectory-based ERG formulation, combining a <em>Dynamic Safety Margin (DSM)</em>
+      and a <em>Navigation Field (NF)</em>, dynamically adjusts the reference trajectory to guarantee safe and
+      coordinated motion between the two robots. Experimental results confirm that the proposed scheme enables
+      the manipulator to handle payloads several times heavier than its nominal capacity while maintaining
+      safe, constraint-compliant cooperation.
     </p>
   </div>
 
-  <h2>Video</h2>
-  <!-- YouTube embed -->
-  <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/0yQzZyuYphE"
-    title="YouTube video" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+  <div class="section">
+    <h2>Video Demonstration</h2>
+    <!-- Replace the link below with your actual YouTube demo -->
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/0yQzZyuYphE"
+      title="Cooperative Crane–Robot ERG Demonstration"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <!-- Local video (if uploaded to repo) -->
-  <video controls>
-    <source src="mydemo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div class="section">
+    <h2>System Overview</h2>
+    <img src="crane_system.png" alt="Crane–Robot Cooperative System">
+    <p style="text-align:center;">
+      <em>Figure:</em> The 7-DoF Franka Emika Panda manipulator and 2-DoF overhead crane cooperate to transport and place a heavy block.
+    </p>
+  </div>
 
-  <h2>Picture</h2>
-  <img src="crane.png" alt="Crane project image">
+  <div class="section">
+    <h2>Paper and Resources</h2>
+    <ul>
+      <li><a href="paper.pdf">Download Full Paper (PDF)</a></li>
+      <li><a href="https://github.com/yourusername/crane-erg-control">View Project Code on GitHub</a></li>
+      <li><a href="https://github.com/stack-of-your-repo/wiki">Documentation & Wiki</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 Zemerart Asani — Université Libre de Bruxelles & Vrije Universiteit Brussel</p>
+  </footer>
 
 </body>
 </html>
