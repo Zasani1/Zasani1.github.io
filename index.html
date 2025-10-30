@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cooperative Crane–Robot System | Explicit Reference Governor</title>
+
+  <!-- MathJax for LaTeX equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,6 +44,13 @@
       border-radius: 8px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
+    }
+    .equations {
+      background: #f7f9fc;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 4px;
     }
     footer {
       text-align: center;
@@ -87,11 +101,50 @@
   </div>
 
   <div class="section">
+    <h2>Mathematical Model</h2>
+    <p>
+      The coupled dynamics of the crane–robot system are modeled as a closed-chain mechanical system using
+      the Euler–Lagrange formalism. The resulting equations of motion are given by:
+    </p>
+
+    <div class="equations">
+      <p>Equation (14):</p>
+      <p>
+        \[
+        M(q)\ddot{q} + C(q, \dot{q})\dot{q} + g(q) = S u + A^T(q)\lambda
+        \]
+      </p>
+      <p>
+        where \(M(q)\) is the inertia matrix, \(C(q,\dot{q})\) the Coriolis–centrifugal term,
+        \(g(q)\) the gravity vector, \(S\) the actuator selection matrix, and \(A(q)^T\lambda\)
+        represents the constraint reaction forces.
+      </p>
+    </div>
+
+    <div class="equations">
+      <p>Equation (15):</p>
+      <p>
+        \[
+        A(q)\dot{q} = 0
+        \]
+      </p>
+      <p>
+        enforcing the closed-chain kinematic constraints that couple the crane and manipulator motions.
+      </p>
+    </div>
+
+    <p>
+      These equations form the basis for the controller design and the Explicit Reference Governor framework,
+      which ensures that all state and input constraints are satisfied throughout the cooperative task execution.
+    </p>
+  </div>
+
+  <div class="section">
     <h2>Paper and Resources</h2>
     <ul>
-      <li><a href="paper.pdf">Download Full Paper (PDF)</a></li>
-      <li><a href="https://github.com/yourusername/crane-erg-control">View Project Code on GitHub</a></li>
-      <li><a href="https://github.com/stack-of-your-repo/wiki">Documentation & Wiki</a></li>
+      <li><a href="paper.pdf">📄 Download Full Paper (PDF)</a></li>
+      <li><a href="https://github.com/yourusername/crane-erg-control">💻 View Project Code on GitHub</a></li>
+      <li><a href="https://github.com/yourusername/crane-erg-control/wiki">📘 Documentation & Wiki</a></li>
     </ul>
   </div>
 
