@@ -133,6 +133,7 @@
       height: 100%;
       position: absolute;
       inset: 0;
+      border: none;
     }
 
     .system-image {
@@ -150,7 +151,7 @@
       font-size: 0.9rem;
     }
 
-    /* Interactive viewer */
+    /* Interactive 3D Simulation */
 
     .simulation-container {
       position: relative;
@@ -176,41 +177,7 @@
       margin-bottom: 1rem;
     }
 
-    .simulation-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.7rem 1.2rem;
-      background: #004080;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      text-align: center;
-      transition: background 0.2s;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      background: #0059b3;
-      color: white;
-    }
-
-    .button.secondary {
-      background: #eef3f9;
-      color: #003366;
-      border: 1px solid #b7cadd;
-    }
-
-    .button.secondary:hover {
-      background: #dce8f5;
-    }
+    /* Downloads */
 
     .downloads {
       padding-left: 1.4rem;
@@ -226,6 +193,8 @@
       margin: 2rem 1rem;
       font-size: 0.9rem;
     }
+
+    /* Mobile responsiveness */
 
     @media (max-width: 600px) {
       main {
@@ -246,10 +215,6 @@
         height: 420px;
       }
 
-      .button {
-        width: 100%;
-      }
-
       .equations {
         padding: 0.8rem;
       }
@@ -259,6 +224,7 @@
 
 <body>
 
+  <!-- HEADER -->
   <header>
     <h1>Crane–Robot Cooperative Control Framework</h1>
     <p>
@@ -266,6 +232,7 @@
     </p>
   </header>
 
+  <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
     <a href="../../index.html">Home</a>
     <a href="../../publications.html">Publications</a>
@@ -305,7 +272,7 @@
       </p>
     </section>
 
-    <!-- VIDEO -->
+    <!-- VIDEO DEMONSTRATION -->
     <section id="video">
       <h2>Video Demonstration</h2>
 
@@ -324,7 +291,7 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE SIMULATION -->
+    <!-- INTERACTIVE 3D SIMULATION -->
     <section id="interactive-simulation">
 
       <h2>Interactive 3D Simulation</h2>
@@ -348,28 +315,8 @@
         <iframe
           src="./real_crane_panda_replay.html"
           title="Interactive Crane Panda Simulation"
-          loading="lazy"
-          allowfullscreen>
+          loading="lazy">
         </iframe>
-
-      </div>
-
-      <div class="simulation-actions">
-
-        <a
-          class="button"
-          href="./real_crane_panda_replay.html"
-          target="_blank"
-          rel="noopener noreferrer">
-          Open Full-Screen 3D Simulation
-        </a>
-
-        <a
-          class="button secondary"
-          href="./real_crane_panda_replay.html"
-          download="real_crane_panda_replay.html">
-          Download Simulation HTML
-        </a>
 
       </div>
 
@@ -484,20 +431,12 @@
           </a>
         </li>
 
-        <li>
-          <a
-            href="./real_crane_panda_replay.html"
-            target="_blank"
-            rel="noopener noreferrer">
-            Interactive 3D Simulation
-          </a>
-        </li>
-
       </ul>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Zemerart Asani —
     Université Libre de Bruxelles &amp;
